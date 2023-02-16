@@ -4,6 +4,7 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import CardList from './components/CardList'
+import Search from './components/Search'
 
 const user = {
   name: 'Tom Cook',
@@ -30,11 +31,11 @@ function classNames(...classes) {
 
 const cards = [
   {
-      id: 1,
-      name: 'Basic Tee',
-      href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
-      imageAlt: "Front of men's Basic Tee in black.",
+    id: 1,
+    name: 'Basic Tee',
+    href: '#',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+    imageAlt: "Front of men's Basic Tee in black.",
   },
 ]
 
@@ -197,7 +198,12 @@ function App() {
         <main>
           <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
             {/* Replace with your content */}
-            <CardList cards={cards} />
+            <div className="bg-white">
+              <div className="mx-auto max-w-2xl py-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+                <Search />
+                <CardList cards={cards} />
+              </div>
+            </div>
             {/* /End replace */}
           </div>
         </main>
