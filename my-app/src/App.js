@@ -5,6 +5,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import CardList from './components/CardList'
 import Search from './components/Search'
+import { CardListResultProvider } from './components/CardListResultContext';
 
 const user = {
   name: 'Tom Cook',
@@ -28,16 +29,6 @@ const userNavigation = [
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
-
-const cards = [
-  {
-    id: 1,
-    name: 'Basic Tee',
-    href: '#',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
-    imageAlt: "Front of men's Basic Tee in black.",
-  },
-]
 
 function App() {
   return (
@@ -200,8 +191,12 @@ function App() {
             {/* Replace with your content */}
             <div className="bg-white">
               <div className="mx-auto max-w-2xl py-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-                <Search />
-                <CardList cards={cards} />
+                <CardListResultProvider>
+                  <>
+                    <Search />
+                    <CardList />
+                  </>
+                </CardListResultProvider>
               </div>
             </div>
             {/* /End replace */}

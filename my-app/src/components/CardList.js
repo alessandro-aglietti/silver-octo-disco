@@ -1,4 +1,8 @@
-export default function CardList({ cards }) {
+import { useContext } from 'react';
+import CardListResultContext from './CardListResultContext';
+
+export default function CardList() {
+    const cards = useContext(CardListResultContext).cards;
     return (
         <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {cards.map((product) => (
